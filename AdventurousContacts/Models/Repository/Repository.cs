@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Resources;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -19,11 +20,13 @@ namespace AdventurousContacts.Models.Repository
 		{
 			try
 			{
+				// Add a contact.
 				_entities.uspAddContactEF(contact.FirstName, contact.LastName, contact.EmailAddress);
 			}
 			catch
 			{
-				throw new Exception("Ett fel inträffades vid tilläggning av kontakt.");
+				// Throw exception with set message.
+				throw new Exception(Messages.AddContactError);
 			}
 		}
 
@@ -32,12 +35,14 @@ namespace AdventurousContacts.Models.Repository
 		{
 			try
 			{
+				// Remove a Contact from our repository.
 				_entities.uspRemoveContact(contact.ContactID);
 			}
 
 			catch
 			{
-				throw new Exception("Ett fel inträffades vid borttagning av kontakt.");
+				// Throw exception with set message.
+				throw new Exception(Messages.DeleteContactError);
 			}
 		}
 
@@ -70,12 +75,14 @@ namespace AdventurousContacts.Models.Repository
 		{
 			try
 			{
+				// Returns all contacts available.
 				return _entities.Contacts;
 			}
 
 			catch
 			{
-				throw new Exception("Ett fel inträffades vid hämtning av alla kontakter.");
+				// Throw exception with set message.
+				throw new Exception(Messages.GetAllContactsError);
 			}
 		}
 
@@ -97,7 +104,8 @@ namespace AdventurousContacts.Models.Repository
 
 			catch
 			{
-				throw new Exception("Ett fel inträffades vid hämtning av kontakt.");
+				// Throw exception with set message.
+				throw new Exception(Messages.GetContactError);
 			}
 		}
 
@@ -106,12 +114,14 @@ namespace AdventurousContacts.Models.Repository
 		{
 			try
 			{
+				// Returns the Contacts with the set offset limit.
 				return _entities.Contacts.Take(count).ToList();
 			}
 
 			catch
 			{
-				throw new Exception(String.Format("Ett fel inträffades vid hämtning av sista {0} kontakterna.", count));
+				// Throw exception with set message.
+				throw new Exception(String.Format(Messages.GetContactsWithOffsetError, count));
 			}
 		}
 
@@ -120,12 +130,14 @@ namespace AdventurousContacts.Models.Repository
 		{
 			try
 			{
+				// Save changes.
 				_entities.SaveChanges();
 			}
 
 			catch
 			{
-				throw new Exception("Ett fel inträffades vid sparning av kontaktlistan.");
+				// Throw exception with set message.
+				throw new Exception(Messages.SaveContactsError);
 			}
 		}
 
@@ -134,12 +146,14 @@ namespace AdventurousContacts.Models.Repository
 		{
 			try
 			{
+				// Update a contact with new data.
 				_entities.uspUpdateContact(contact.ContactID, contact.FirstName, contact.LastName, contact.EmailAddress);
 			}
 
 			catch
 			{
-				throw new Exception("Ett fel inträffades vid uppdatering av kontakt.");
+				// Throw exception with set message.
+				throw new Exception(Messages.UpdateContactError);
 			}
 		}
 	}

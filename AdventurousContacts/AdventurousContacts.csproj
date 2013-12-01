@@ -158,9 +158,6 @@
     <Compile Include="Models\Contact_Metadata.cs" />
     <Compile Include="Models\Repository\IRepository.cs" />
     <Compile Include="Models\Repository\Repository.cs" />
-    <Compile Include="Models\uspGetContact_Result.cs">
-      <DependentUpon>AdventureWorksModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -253,6 +250,11 @@
     <Content Include="Scripts\knockout-2.2.0.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="Styles\basic.css" />
+    <Content Include="Styles\default.css" />
+    <Content Include="Styles\fonts.css" />
+    <Content Include="Styles\reset.css" />
+    <Content Include="Styles\unsemantic-grid-responsive.css" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -264,6 +266,15 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Styles\fonts\Josefin Sans Bold.ttf" />
+    <Content Include="Styles\fonts\Josefin Sans SemiBold.ttf" />
+    <Content Include="Styles\fonts\Josefin Sans.ttf" />
+    <Content Include="Styles\fonts\Open Sans Extrabold.ttf" />
+    <Content Include="Styles\fonts\Open Sans.ttf" />
+    <Content Include="Views\Contact\Index.cshtml" />
+    <Content Include="Views\Contact\Create.cshtml" />
+    <Content Include="Views\Contact\ContactForm.cshtml" />
+    <Content Include="Views\Contact\Success.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

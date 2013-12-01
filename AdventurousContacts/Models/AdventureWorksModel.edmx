@@ -67,47 +67,7 @@
         </EntityType>
         <EntityContainer Name="AdventureWorksEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Contacts" EntityType="Self.Contact" />
-          <FunctionImport Name="uspAddContact">
-            <Parameter Name="FirstName" Mode="In" Type="String" />
-            <Parameter Name="LastName" Mode="In" Type="String" />
-            <Parameter Name="EmailAddress" Mode="In" Type="String" />
-            <Parameter Name="ContactID" Mode="InOut" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="uspAddContactEF" ReturnType="Collection(Decimal)">
-            <Parameter Name="FirstName" Mode="In" Type="String" />
-            <Parameter Name="LastName" Mode="In" Type="String" />
-            <Parameter Name="EmailAddress" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="uspAddContact_OUTPUT">
-            <Parameter Name="FirstName" Mode="In" Type="String" />
-            <Parameter Name="LastName" Mode="In" Type="String" />
-            <Parameter Name="EmailAddress" Mode="In" Type="String" />
-            <Parameter Name="ContactID" Mode="InOut" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="uspAddContact_SELECT" ReturnType="Collection(Decimal)">
-            <Parameter Name="FirstName" Mode="In" Type="String" />
-            <Parameter Name="LastName" Mode="In" Type="String" />
-            <Parameter Name="EmailAddress" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="uspGetContact" ReturnType="Collection(AdventurousContacts.Models.uspGetContact_Result)">
-            <Parameter Name="ContactID" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="uspRemoveContact">
-            <Parameter Name="ContactID" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="uspUpdateContact">
-            <Parameter Name="ContactID" Mode="In" Type="Int32" />
-            <Parameter Name="FirstName" Mode="In" Type="String" />
-            <Parameter Name="LastName" Mode="In" Type="String" />
-            <Parameter Name="EmailAddress" Mode="In" Type="String" />
-          </FunctionImport>
         </EntityContainer>
-        <ComplexType Name="uspGetContact_Result">
-          <Property Type="Int32" Name="ContactID" Nullable="false" />
-          <Property Type="String" Name="FirstName" Nullable="false" MaxLength="50" />
-          <Property Type="String" Name="LastName" Nullable="false" MaxLength="50" />
-          <Property Type="String" Name="EmailAddress" Nullable="false" MaxLength="50" />
-        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -123,23 +83,26 @@
                 <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
               </MappingFragment>
             </EntityTypeMapping>
+            <EntityTypeMapping TypeName="AdventurousContacts.Models.Contact">
+              <ModificationFunctionMapping>
+                <InsertFunction FunctionName="AdventurousContacts.Models.Store.uspAddContactEF">
+                  <ScalarProperty Name="EmailAddress" ParameterName="EmailAddress" />
+                  <ScalarProperty Name="LastName" ParameterName="LastName" />
+                  <ScalarProperty Name="FirstName" ParameterName="FirstName" />
+                  <ResultBinding Name="ContactID" ColumnName="NewContactId" />
+                </InsertFunction>
+                <UpdateFunction FunctionName="AdventurousContacts.Models.Store.uspUpdateContact">
+                  <ScalarProperty Name="EmailAddress" ParameterName="EmailAddress" Version="Current" />
+                  <ScalarProperty Name="LastName" ParameterName="LastName" Version="Current" />
+                  <ScalarProperty Name="FirstName" ParameterName="FirstName" Version="Current" />
+                  <ScalarProperty Name="ContactID" ParameterName="ContactID" Version="Current" />
+                </UpdateFunction>
+                <DeleteFunction FunctionName="AdventurousContacts.Models.Store.uspRemoveContact">
+                  <ScalarProperty Name="ContactID" ParameterName="ContactID" />
+                </DeleteFunction>
+              </ModificationFunctionMapping>
+            </EntityTypeMapping>
           </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="uspAddContact" FunctionName="AdventurousContacts.Models.Store.uspAddContact" />
-          <FunctionImportMapping FunctionImportName="uspAddContactEF" FunctionName="AdventurousContacts.Models.Store.uspAddContactEF" />
-          <FunctionImportMapping FunctionImportName="uspAddContact_OUTPUT" FunctionName="AdventurousContacts.Models.Store.uspAddContact_OUTPUT" />
-          <FunctionImportMapping FunctionImportName="uspAddContact_SELECT" FunctionName="AdventurousContacts.Models.Store.uspAddContact_SELECT" />
-          <FunctionImportMapping FunctionImportName="uspGetContact" FunctionName="AdventurousContacts.Models.Store.uspGetContact">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="AdventurousContacts.Models.uspGetContact_Result">
-                <ScalarProperty Name="ContactID" ColumnName="ContactID" />
-                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
-                <ScalarProperty Name="LastName" ColumnName="LastName" />
-                <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="uspRemoveContact" FunctionName="AdventurousContacts.Models.Store.uspRemoveContact" />
-          <FunctionImportMapping FunctionImportName="uspUpdateContact" FunctionName="AdventurousContacts.Models.Store.uspUpdateContact" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

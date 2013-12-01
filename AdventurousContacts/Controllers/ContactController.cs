@@ -37,6 +37,7 @@ namespace AdventurousContacts.Controllers
 		//
 		// POST: /Contact/Create/
 		[HttpPost]
+		[ValidateAntiForgeryToken]
 		public ActionResult Create(Contact contact)
 		{
 			if (ModelState.IsValid)
@@ -45,6 +46,9 @@ namespace AdventurousContacts.Controllers
 				{
 					// Add the new Contact to the repository.
 					_repository.Add(contact);
+
+					// Save changes.
+					_repository.Save();
 
 					// Show success page.
 					return View("Success", contact);
@@ -59,8 +63,8 @@ namespace AdventurousContacts.Controllers
 				}
 			}
 
-			// Return front-page view.
-			return View("Index");
+			// Return Create view.
+			return View("Create", contact);
 		}
 
 		//
@@ -101,6 +105,9 @@ namespace AdventurousContacts.Controllers
 				// Delete the contact.
 				_repository.Delete(contact);
 
+				// Save changes.
+				_repository.Save();
+
 				// Return Success view.
 				return View("Success", Messages.DeleteContactSuccess);
 			}
@@ -114,6 +121,13 @@ namespace AdventurousContacts.Controllers
 
 			// Return NotFound.
 			return View("NotFound");
+		}
+
+		// Dispose of resources.
+		protected override void Dispose(bool disposing)
+		{
+			_repository.Dispose();
+			base.Dispose(disposing);
 		}
 
 		//
@@ -154,6 +168,9 @@ namespace AdventurousContacts.Controllers
 					// the newly edited Contact.
 					_repository.Update(contact);
 
+					// Save changes.
+					_repository.Save();
+
 					// Return the Success view.
 					return View("Success", Messages.UpdateContactSuccess);
 				}
@@ -176,7 +193,11 @@ namespace AdventurousContacts.Controllers
         // GET: /Contact/
         public ActionResult Index()
         {
-            return View("Index");
+			// Get the last 20 contacts.
+			var contacts = _repository.GetLastContacts();
+
+			// Return the view with the contacts.
+            return View("Index", contacts);
         }
 
     }

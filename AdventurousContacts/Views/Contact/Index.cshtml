@@ -1,0 +1,67 @@
+﻿@model IEnumerable<AdventurousContacts.Models.Contact>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Kontakter</h2>
+
+<p>
+    @Html.ActionLink(
+	"Skapa ny",
+	"Create",
+	"Contact",
+	new { },
+	new { @class = "btn btn-yellow" })
+
+</p>
+
+<table class="basic-table">
+	<thead>
+		<tr>
+			<th>
+				@Html.DisplayNameFor(model => model.FirstName)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.LastName)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.EmailAddress)
+			</th>
+			<th></th>
+		</tr>
+	</thead>
+
+	<tbody>
+	@foreach (var item in Model) {
+		<tr>
+			<td>
+				@Html.DisplayFor(modelItem => item.FirstName)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.LastName)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.EmailAddress)
+			</td>
+			<td>
+				@Html.ActionLink(
+					"Ändra",
+					"Edit",
+					"Contact",
+					new { id = item.ContactID },
+					new { @class = "small-btn btn-yellow" }) |
+           
+				 @Html.ActionLink(
+					"Ta bort",
+					"Delete",
+					"Contact",
+					new { id = item.ContactID },
+					new { @class = "small-btn btn-yellow" })
+			</td>
+		</tr>
+	}
+	</tbody>
+
+</table>

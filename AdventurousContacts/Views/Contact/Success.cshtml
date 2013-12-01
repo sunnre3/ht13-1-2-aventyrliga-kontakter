@@ -1,0 +1,31 @@
+﻿@model AdventurousContacts.Models.Contact
+
+@{
+    ViewBag.Title = "Success";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+	
+	var action = ViewContext.RouteData.GetRequiredString("action");
+	var message = String.Empty;
+}
+
+@if (action == "Create")
+{
+	message = String.Format("<strong>{0} {1} ({2})</strong> skapades utan problem.",
+		Model.FirstName, Model.LastName, Model.EmailAddress);
+}
+
+else if (action == "Edit")
+{
+	message = String.Format("<strong>{0} {1} ({2})</strong> uppdaterades utan problem.",
+		Model.FirstName, Model.LastName, Model.EmailAddress);
+}
+
+else if (action == "Delete")
+{
+	message = String.Format("<strong>{0} {1} ({2})</strong> togs bort utan problem.",
+		Model.FirstName, Model.LastName, Model.EmailAddress);
+}
+
+<h2>Succé!</h2>
+
+@Html.Raw(message)

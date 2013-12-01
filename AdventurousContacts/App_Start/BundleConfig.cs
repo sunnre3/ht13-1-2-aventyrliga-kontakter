@@ -25,6 +25,13 @@ namespace AdventurousContacts
 
             bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/site.css"));
 
+			bundles.Add(new StyleBundle("~/Styles").Include(
+					"~/Styles/reset.css",
+					"~/Styles/fonts.css",
+					"~/Styles/basic.css",
+					"~/Styles/default.css"
+				));
+
             bundles.Add(new StyleBundle("~/Content/themes/base/css").Include(
                         "~/Content/themes/base/jquery.ui.core.css",
                         "~/Content/themes/base/jquery.ui.resizable.css",

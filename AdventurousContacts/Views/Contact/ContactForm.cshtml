@@ -1,0 +1,36 @@
+﻿@model AdventurousContacts.Models.Contact
+
+@{
+	var submitText = (Model == null) ? "Skapa ny kontakt" : "Spara";
+}
+
+@using (Html.BeginForm())
+{
+	@Html.AntiForgeryToken()
+	
+	<div class="input">
+		@Html.LabelFor(m => m.FirstName)
+		@Html.TextBoxFor(m => m.FirstName)
+	</div>
+	
+	<div class="input">
+		@Html.LabelFor(m => m.LastName)
+		@Html.TextBoxFor(m => m.LastName)
+	</div>
+	
+	<div class="input">
+		@Html.LabelFor(m => m.EmailAddress)
+		@Html.TextBoxFor(m => m.EmailAddress)
+	</div>
+	
+	<input type="submit" class="btn btn-green" value="@submitText">
+}
+
+<p class="back-btn">
+	@Html.ActionLink(
+	"Tillbaka till kontakter",
+	"Index",
+	"Contact",
+	new { },
+	new { @class = "btn btn-yellow" })
+</p>

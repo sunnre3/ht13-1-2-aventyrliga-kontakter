@@ -1,6 +1,7 @@
 ﻿using Resources;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 
@@ -21,7 +22,7 @@ namespace AdventurousContacts.Models.Repository
 			try
 			{
 				// Add a contact.
-				_entities.uspAddContactEF(contact.FirstName, contact.LastName, contact.EmailAddress);
+				_entities.Contacts.Add(contact);
 			}
 			catch
 			{
@@ -36,7 +37,7 @@ namespace AdventurousContacts.Models.Repository
 			try
 			{
 				// Remove a Contact from our repository.
-				_entities.uspRemoveContact(contact.ContactID);
+				_entities.Contacts.Remove(contact);
 			}
 
 			catch
@@ -91,15 +92,8 @@ namespace AdventurousContacts.Models.Repository
 		{
 			try
 			{
-				// Try getting the contact.
-				var contact = _entities.uspGetContact(contactId).FirstOrDefault();
-
-				return new Contact {
-						ContactID = contact.ContactID,
-						FirstName = contact.FirstName,
-						LastName = contact.LastName,
-						EmailAddress = contact.EmailAddress
-					};
+				// Return single contact.
+				return _entities.Contacts.Find(contactId);
 			}
 
 			catch
@@ -115,13 +109,17 @@ namespace AdventurousContacts.Models.Repository
 			try
 			{
 				// Returns the Contacts with the set offset limit.
-				return _entities.Contacts.Take(count).ToList();
+				return _entities.Contacts
+					.OrderByDescending(c => c.ContactID)
+					.Skip(Math.Max(0, _entities.Contacts.Count() - count))
+					.Take(count)
+					.ToList();
 			}
 
 			catch
 			{
 				// Throw exception with set message.
-				throw new Exception(String.Format(Messages.GetContactsWithOffsetError, count));
+				throw;// new Exception(String.Format(Messages.GetContactsWithOffsetError, count));
 			}
 		}
 
@@ -146,8 +144,15 @@ namespace AdventurousContacts.Models.Repository
 		{
 			try
 			{
-				// Update a contact with new data.
-				_entities.uspUpdateContact(contact.ContactID, contact.FirstName, contact.LastName, contact.EmailAddress);
+				//// Get the old Contact.
+				//var old = _entities.Contacts.FirstOrDefault(c => c.ContactID == contact.ContactID);
+
+				//// Modify the values.
+				//old.EmailAddress = contact.EmailAddress;
+				//old.FirstName = contact.FirstName;
+				//old.LastName = contact.LastName;
+
+				_entities.Entry(contact).State = EntityState.Modified;
 			}
 
 			catch

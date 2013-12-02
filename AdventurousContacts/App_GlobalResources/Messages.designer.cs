@@ -70,11 +70,56 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Tillbaka till kontakter.
+        /// </summary>
+        internal static string BackToContactsLink {
+            get {
+                return ResourceManager.GetString("BackToContactsLink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ledsen - kontakten du söker finns inte eller har blivit borttagen..
         /// </summary>
         internal static string ContactNotFoundError {
             get {
                 return ResourceManager.GetString("ContactNotFoundError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kontakten hittades inte.
+        /// </summary>
+        internal static string ContactNotFoundTitleError {
+            get {
+                return ResourceManager.GetString("ContactNotFoundTitleError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Skapa ny.
+        /// </summary>
+        internal static string CreateContactLink {
+            get {
+                return ResourceManager.GetString("CreateContactLink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} ({1}) skapades..
+        /// </summary>
+        internal static string CreateContactSuccess {
+            get {
+                return ResourceManager.GetString("CreateContactSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Är du säker på att du vill ta bort {0} ({1})?.
+        /// </summary>
+        internal static string DeleteContactConfirmation {
+            get {
+                return ResourceManager.GetString("DeleteContactConfirmation", resourceCulture);
             }
         }
         
@@ -88,11 +133,164 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Ta bort.
+        /// </summary>
+        internal static string DeleteContactLink {
+            get {
+                return ResourceManager.GetString("DeleteContactLink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ta bort kontakt.
+        /// </summary>
+        internal static string DeleteContactPageHeader {
+            get {
+                return ResourceManager.GetString("DeleteContactPageHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Äventyrliga kontakter - ta bort kontakt.
+        /// </summary>
+        internal static string DeleteContactPageTitle {
+            get {
+                return ResourceManager.GetString("DeleteContactPageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {0} ({1}) togs bort..
         /// </summary>
         internal static string DeleteContactSuccess {
             get {
                 return ResourceManager.GetString("DeleteContactSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ändra.
+        /// </summary>
+        internal static string EditContactLink {
+            get {
+                return ResourceManager.GetString("EditContactLink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Redigera kontakt.
+        /// </summary>
+        internal static string EditContactPageHeader {
+            get {
+                return ResourceManager.GetString("EditContactPageHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Äventyrliga kontakter - redigera kontakt.
+        /// </summary>
+        internal static string EditContactPageTitle {
+            get {
+                return ResourceManager.GetString("EditContactPageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} är inte en korrekt e-postadress..
+        /// </summary>
+        internal static string EmailAddressError {
+            get {
+                return ResourceManager.GetString("EmailAddressError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to E-postadress.
+        /// </summary>
+        internal static string EmailAddressFieldName {
+            get {
+                return ResourceManager.GetString("EmailAddressFieldName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Du måste fylla i en e-postadress..
+        /// </summary>
+        internal static string EmailAddressRequiredError {
+            get {
+                return ResourceManager.GetString("EmailAddressRequiredError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fältet får inte överstiga {1} tecken..
+        /// </summary>
+        internal static string FieldMaxLengthError {
+            get {
+                return ResourceManager.GetString("FieldMaxLengthError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Förstanamn.
+        /// </summary>
+        internal static string FirstNameFieldName {
+            get {
+                return ResourceManager.GetString("FirstNameFieldName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Du måste fylla i ett förstanamn..
+        /// </summary>
+        internal static string FirstNameRequiredError {
+            get {
+                return ResourceManager.GetString("FirstNameRequiredError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kontakter.
+        /// </summary>
+        internal static string FirstPageHeader {
+            get {
+                return ResourceManager.GetString("FirstPageHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Äventyrliga kontakter.
+        /// </summary>
+        internal static string FirstPageTitle {
+            get {
+                return ResourceManager.GetString("FirstPageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ledsen - ett fel uppstod vid processering av din begäran..
+        /// </summary>
+        internal static string GeneralErrorPageContent {
+            get {
+                return ResourceManager.GetString("GeneralErrorPageContent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fel!.
+        /// </summary>
+        internal static string GeneralErrorPageHeader {
+            get {
+                return ResourceManager.GetString("GeneralErrorPageHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Äventyrliga kontakter - fel.
+        /// </summary>
+        internal static string GeneralErrorPageTitle {
+            get {
+                return ResourceManager.GetString("GeneralErrorPageTitle", resourceCulture);
             }
         }
         
@@ -124,11 +322,119 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Oops! Servern returnerade en 404 (page not found)! På svenska betyder det att sidan, adressen eller URL:n du letar efter har blivit flyttad utan att lämna en ny adress..
+        /// </summary>
+        internal static string HTTP404ErrorPageContent {
+            get {
+                return ResourceManager.GetString("HTTP404ErrorPageContent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Resursen hittades inte.
+        /// </summary>
+        internal static string HTTP404ErrorPageHeader {
+            get {
+                return ResourceManager.GetString("HTTP404ErrorPageHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Äventyrliga kontakter - fel.
+        /// </summary>
+        internal static string HTTP404ErrorPageTitle {
+            get {
+                return ResourceManager.GetString("HTTP404ErrorPageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Efternamn.
+        /// </summary>
+        internal static string LastNameFieldName {
+            get {
+                return ResourceManager.GetString("LastNameFieldName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Du måste fylla i ett efternamn..
+        /// </summary>
+        internal static string LastNameRequiredError {
+            get {
+                return ResourceManager.GetString("LastNameRequiredError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Skapa ny kontakt.
+        /// </summary>
+        internal static string NewContactPageHeader {
+            get {
+                return ResourceManager.GetString("NewContactPageHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Äventyrliga kontakter - ny kontakt.
+        /// </summary>
+        internal static string NewContactPageTitle {
+            get {
+                return ResourceManager.GetString("NewContactPageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Äventyrliga kontakter - kontakt saknas.
+        /// </summary>
+        internal static string NotFoundPageTitle {
+            get {
+                return ResourceManager.GetString("NotFoundPageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ett fel inträffades vid sparning av kontaktlistan..
         /// </summary>
         internal static string SaveContactsError {
             get {
                 return ResourceManager.GetString("SaveContactsError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Spara.
+        /// </summary>
+        internal static string SubmitButtonEditText {
+            get {
+                return ResourceManager.GetString("SubmitButtonEditText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Skapa ny kontakt.
+        /// </summary>
+        internal static string SubmitButtonNewText {
+            get {
+                return ResourceManager.GetString("SubmitButtonNewText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Succé!.
+        /// </summary>
+        internal static string SuccessPageHeader {
+            get {
+                return ResourceManager.GetString("SuccessPageHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Äventyrliga kontakter - succé.
+        /// </summary>
+        internal static string SuccessPageTitle {
+            get {
+                return ResourceManager.GetString("SuccessPageTitle", resourceCulture);
             }
         }
         

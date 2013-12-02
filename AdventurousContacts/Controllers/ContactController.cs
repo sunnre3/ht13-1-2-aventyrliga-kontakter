@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Routing;
 
 namespace AdventurousContacts.Controllers
 {
@@ -38,7 +39,7 @@ namespace AdventurousContacts.Controllers
 		// POST: /Contact/Create/
 		[HttpPost]
 		[ValidateAntiForgeryToken]
-		public ActionResult Create(Contact contact)
+		public ActionResult Create([Bind(Exclude="ContactID")]Contact contact)
 		{
 			if (ModelState.IsValid)
 			{
@@ -71,30 +72,25 @@ namespace AdventurousContacts.Controllers
 		// GET: /Contact/Delete/contactId
 		public ActionResult Delete(int id = 0)
 		{
-			try
-			{
-				// Get the contact associated with the id.
-				var contact = _repository.GetContactById(id);
+			// Get the contact associated with the id.
+			var contact = _repository.GetContactById(id);
 
-				// Return the contact down to the view
-				// for user confirmation.
-				return View("Delete", contact);
+			// If no contact was found, show the
+			// NotFound view.
+			if (contact == null)
+			{
+				return View("NotFound");
 			}
 
-			catch
-			{
-				// If no contact was found, add an error
-				// to the modelstate.
-				ModelState.AddModelError(String.Empty, Messages.ContactNotFoundError);
-			}
-
-			// Return NotFound.
-			return View("NotFound");
+			// Return the edit view along with
+			// the Contact object for user to edit.
+			return View("Delete", contact);
 		}
 
 		//
 		// POST: /Contact/Delete/contactId
-		[HttpPost]
+		[HttpPost, ActionName("Delete")]
+		[ValidateAntiForgeryToken]
 		public ActionResult DeleteConfirmed(int id = 0)
 		{
 			try
@@ -109,18 +105,17 @@ namespace AdventurousContacts.Controllers
 				_repository.Save();
 
 				// Return Success view.
-				return View("Success", Messages.DeleteContactSuccess);
+				return View("Success", contact);
 			}
 
 			catch
 			{
 				// If no contact was found, add an error
 				// to the modelstate.
-				ModelState.AddModelError(String.Empty, Messages.ContactNotFoundError);
+				ModelState.AddModelError(String.Empty, Messages.DeleteContactError);
 			}
 
-			// Return NotFound.
-			return View("NotFound");
+			return View("Delete", _repository.GetContactById(id));
 		}
 
 		// Dispose of resources.
@@ -134,25 +129,19 @@ namespace AdventurousContacts.Controllers
 		// GET: /Contact/Edit/contactId
 		public ActionResult Edit(int id = 0)
 		{
-			try
-			{
-				// Get the contact associated with the id.
-				var contact = _repository.GetContactById(id);
+			// Get the contact associated with the id.
+			var contact = _repository.GetContactById(id);
 
-				// Return the edit view along with
-				// the Contact object for user to edit.
-				return View("Edit", contact);
+			// If no contact was found, show the
+			// NotFound view.
+			if (contact == null)
+			{
+				return View("NotFound");
 			}
 
-			catch
-			{
-				// If no contact was found, add an error
-				// to the modelstate.
-				ModelState.AddModelError(String.Empty, Messages.ContactNotFoundError);
-			}
-
-			// Return NotFound.
-			return View("NotFound");
+			// Return the edit view along with
+			// the Contact object for user to edit.
+			return View("Edit", contact);
 		}
 
 		//
@@ -172,18 +161,15 @@ namespace AdventurousContacts.Controllers
 					_repository.Save();
 
 					// Return the Success view.
-					return View("Success", Messages.UpdateContactSuccess);
+					return View("Success", contact);
 				}
 
 				catch
 				{
 					// If no contact was found, add an error
 					// to the modelstate.
-					ModelState.AddModelError(String.Empty, Messages.ContactNotFoundError);
+					ModelState.AddModelError(String.Empty, Messages.UpdateContactError);
 				}
-
-				// Return NotFound.
-				return View("NotFound");
 			}
 
 			return View("Edit", contact);

@@ -1,0 +1,31 @@
+﻿@model AdventurousContacts.Models.Contact
+@using Resources
+
+@{
+    ViewBag.Title = Messages.DeleteContactPageTitle;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+	var name = "<strong>" + Model.FirstName + " " + Model.LastName + "</strong>";
+	var email = "<strong>" + Model.EmailAddress + "</strong>";
+}
+
+<h2>@Messages.DeleteContactPageHeader</h2>
+
+@Html.ValidationSummary()
+
+<p>@Html.Raw(String.Format(Messages.DeleteContactConfirmation,
+	name, email))</p>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Ta bort" class="btn btn-red" />
+
+        @Html.ActionLink(
+			Messages.BackToContactsLink,
+			"Index",
+			"Contact",
+			new { },
+			new { @class = "btn btn-yellow" })
+    </p>
+}

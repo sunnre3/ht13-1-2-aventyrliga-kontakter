@@ -1,0 +1,12 @@
+﻿@using Resources
+
+@{
+    ViewBag.Title = Messages.NotFoundPageTitle;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Messages.ContactNotFoundTitleError</h2>
+
+<p>@Messages.ContactNotFoundError</p>
+
+<p>Klicka @Html.ActionLink("här", "Index") för att komma tillbaka till kontakterna.</p>

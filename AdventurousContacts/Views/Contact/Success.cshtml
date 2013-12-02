@@ -1,31 +1,37 @@
 ﻿@model AdventurousContacts.Models.Contact
+@using Resources
 
 @{
-    ViewBag.Title = "Success";
+    ViewBag.Title = Messages.SuccessPageTitle;
     Layout = "~/Views/Shared/_Layout.cshtml";
 	
 	var action = ViewContext.RouteData.GetRequiredString("action");
 	var message = String.Empty;
+
+	var name = "<strong>" + Model.FirstName + " " + Model.LastName + "</strong>";
+	var email = "<strong>" + Model.EmailAddress + "</strong>";
 }
 
 @if (action == "Create")
 {
-	message = String.Format("<strong>{0} {1} ({2})</strong> skapades utan problem.",
-		Model.FirstName, Model.LastName, Model.EmailAddress);
+	message = String.Format(Messages.CreateContactSuccess,
+		name, email);
 }
 
 else if (action == "Edit")
 {
-	message = String.Format("<strong>{0} {1} ({2})</strong> uppdaterades utan problem.",
-		Model.FirstName, Model.LastName, Model.EmailAddress);
+	message = String.Format(Messages.UpdateContactSuccess,
+		name, email);
 }
 
 else if (action == "Delete")
 {
-	message = String.Format("<strong>{0} {1} ({2})</strong> togs bort utan problem.",
-		Model.FirstName, Model.LastName, Model.EmailAddress);
+	message = String.Format(Messages.DeleteContactSuccess,
+		name, email);
 }
 
-<h2>Succé!</h2>
+<h2>@Messages.SuccessPageHeader</h2>
 
-@Html.Raw(message)
+<p>@Html.Raw(message)</p>
+
+<p>Klicka @Html.ActionLink("här", "Index") för att komma tillbaka till kontakterna.</p>

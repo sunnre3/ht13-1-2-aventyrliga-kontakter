@@ -1,17 +1,10 @@
-﻿@{
-    Layout = null;
+﻿@using Resources
+
+@{
+	ViewBag.Title = Messages.GeneralErrorPageTitle;
+	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<!DOCTYPE html>
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Error</title>
-</head>
-<body>
-    <hgroup>
-        <h1>Error.</h1>
-        <h2>An error occurred while processing your request.</h2>
-    </hgroup>
-</body>
-</html>
+<h2>@Messages.GeneralErrorPageHeader</h2>
+
+<p>@Messages.GeneralErrorPageContent</p>

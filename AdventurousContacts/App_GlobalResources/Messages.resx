@@ -120,14 +120,80 @@
   <data name="AddContactError" xml:space="preserve">
     <value>Ett fel inträffades vid tilläggning av kontakt.</value>
   </data>
+  <data name="BackToContactsLink" xml:space="preserve">
+    <value>Tillbaka till kontakter</value>
+  </data>
   <data name="ContactNotFoundError" xml:space="preserve">
     <value>Ledsen - kontakten du söker finns inte eller har blivit borttagen.</value>
+  </data>
+  <data name="ContactNotFoundTitleError" xml:space="preserve">
+    <value>Kontakten hittades inte</value>
+  </data>
+  <data name="CreateContactLink" xml:space="preserve">
+    <value>Skapa ny</value>
+  </data>
+  <data name="CreateContactSuccess" xml:space="preserve">
+    <value>{0} ({1}) skapades.</value>
+  </data>
+  <data name="DeleteContactConfirmation" xml:space="preserve">
+    <value>Är du säker på att du vill ta bort {0} ({1})?</value>
   </data>
   <data name="DeleteContactError" xml:space="preserve">
     <value>Ett fel inträffades vid borttagning av kontakt.</value>
   </data>
+  <data name="DeleteContactLink" xml:space="preserve">
+    <value>Ta bort</value>
+  </data>
+  <data name="DeleteContactPageHeader" xml:space="preserve">
+    <value>Ta bort kontakt</value>
+  </data>
+  <data name="DeleteContactPageTitle" xml:space="preserve">
+    <value>Äventyrliga kontakter - ta bort kontakt</value>
+  </data>
   <data name="DeleteContactSuccess" xml:space="preserve">
     <value>{0} ({1}) togs bort.</value>
+  </data>
+  <data name="EditContactLink" xml:space="preserve">
+    <value>Ändra</value>
+  </data>
+  <data name="EditContactPageHeader" xml:space="preserve">
+    <value>Redigera kontakt</value>
+  </data>
+  <data name="EditContactPageTitle" xml:space="preserve">
+    <value>Äventyrliga kontakter - redigera kontakt</value>
+  </data>
+  <data name="EmailAddressError" xml:space="preserve">
+    <value>{0} är inte en korrekt e-postadress.</value>
+  </data>
+  <data name="EmailAddressFieldName" xml:space="preserve">
+    <value>E-postadress</value>
+  </data>
+  <data name="EmailAddressRequiredError" xml:space="preserve">
+    <value>Du måste fylla i en e-postadress.</value>
+  </data>
+  <data name="FieldMaxLengthError" xml:space="preserve">
+    <value>Fältet får inte överstiga {1} tecken.</value>
+  </data>
+  <data name="FirstNameFieldName" xml:space="preserve">
+    <value>Förstanamn</value>
+  </data>
+  <data name="FirstNameRequiredError" xml:space="preserve">
+    <value>Du måste fylla i ett förstanamn.</value>
+  </data>
+  <data name="FirstPageHeader" xml:space="preserve">
+    <value>Kontakter</value>
+  </data>
+  <data name="FirstPageTitle" xml:space="preserve">
+    <value>Äventyrliga kontakter</value>
+  </data>
+  <data name="GeneralErrorPageContent" xml:space="preserve">
+    <value>Ledsen - ett fel uppstod vid processering av din begäran.</value>
+  </data>
+  <data name="GeneralErrorPageHeader" xml:space="preserve">
+    <value>Fel!</value>
+  </data>
+  <data name="GeneralErrorPageTitle" xml:space="preserve">
+    <value>Äventyrliga kontakter - fel</value>
   </data>
   <data name="GetAllContactsError" xml:space="preserve">
     <value>Ett fel inträffades vid hämtning av alla kontakter.</value>
@@ -138,8 +204,44 @@
   <data name="GetContactsWithOffsetError" xml:space="preserve">
     <value>Ett fel inträffades vid hämtning av sista {0} kontakterna.</value>
   </data>
+  <data name="HTTP404ErrorPageContent" xml:space="preserve">
+    <value>Oops! Servern returnerade en 404 (page not found)! På svenska betyder det att sidan, adressen eller URL:n du letar efter har blivit flyttad utan att lämna en ny adress.</value>
+  </data>
+  <data name="HTTP404ErrorPageHeader" xml:space="preserve">
+    <value>Resursen hittades inte</value>
+  </data>
+  <data name="HTTP404ErrorPageTitle" xml:space="preserve">
+    <value>Äventyrliga kontakter - fel</value>
+  </data>
+  <data name="LastNameFieldName" xml:space="preserve">
+    <value>Efternamn</value>
+  </data>
+  <data name="LastNameRequiredError" xml:space="preserve">
+    <value>Du måste fylla i ett efternamn.</value>
+  </data>
+  <data name="NewContactPageHeader" xml:space="preserve">
+    <value>Skapa ny kontakt</value>
+  </data>
+  <data name="NewContactPageTitle" xml:space="preserve">
+    <value>Äventyrliga kontakter - ny kontakt</value>
+  </data>
+  <data name="NotFoundPageTitle" xml:space="preserve">
+    <value>Äventyrliga kontakter - kontakt saknas</value>
+  </data>
   <data name="SaveContactsError" xml:space="preserve">
     <value>Ett fel inträffades vid sparning av kontaktlistan.</value>
+  </data>
+  <data name="SubmitButtonEditText" xml:space="preserve">
+    <value>Spara</value>
+  </data>
+  <data name="SubmitButtonNewText" xml:space="preserve">
+    <value>Skapa ny kontakt</value>
+  </data>
+  <data name="SuccessPageHeader" xml:space="preserve">
+    <value>Succé!</value>
+  </data>
+  <data name="SuccessPageTitle" xml:space="preserve">
+    <value>Äventyrliga kontakter - succé</value>
   </data>
   <data name="UnknownError" xml:space="preserve">
     <value>Ett oväntat fel inträffades.</value>

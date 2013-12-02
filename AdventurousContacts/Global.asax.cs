@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AdventurousContacts.Controllers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -23,5 +24,34 @@ namespace AdventurousContacts
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
+
+		//protected void Application_Error()
+		//{
+		//	var exception = Server.GetLastError();
+		//	var httpException = exception as HttpException;
+		//	Response.Clear();
+		//	Server.ClearError();
+		//	var routeData = new RouteData();
+		//	routeData.Values["controller"] = "Error";
+		//	routeData.Values["action"] = "General";
+		//	routeData.Values["exception"] = exception;
+		//	Response.StatusCode = 500;
+		//	//if (httpException != null)
+		//	//{
+		//	//	Response.StatusCode = httpException.GetHttpCode();
+		//	//	switch (Response.StatusCode)
+		//	//	{
+		//	//		case 404:
+		//	//			routeData.Values["action"] = "404";
+		//	//			break;
+		//	//	}
+		//	//}
+		//	// Avoid IIS7 getting in the middle
+		//	Response.TrySkipIisCustomErrors = true;
+		//	IController errorController = new ErrorController();
+		//	HttpContextWrapper wrapper = new HttpContextWrapper(Context);
+		//	var rc = new RequestContext(wrapper, routeData);
+		//	errorController.Execute(rc);
+		//}
     }
 }

@@ -13,19 +13,26 @@ namespace AdventurousContacts.Models
 
 	public class Contact_Metadata
 	{
-		[Required]
-		[MaxLength(50)]
-		[EmailAddress]
+		[Required(ErrorMessageResourceType = typeof(Resources.Messages),
+			ErrorMessageResourceName = "FirstNameRequiredError")]
+		[MaxLength(50, ErrorMessageResourceType = typeof(Resources.Messages),
+			ErrorMessageResourceName = "FieldMaxLengthError")]
+		[EmailAddress(ErrorMessageResourceType = typeof(Resources.Messages),
+			ErrorMessageResourceName = "EmailAddressError", ErrorMessage = null)]
 		[DisplayName("Epostadress")]
 		public string EmailAddress { get; set; }
 
-		[Required]
-		[MaxLength(50)]
+		[Required(ErrorMessageResourceType = typeof(Resources.Messages),
+			ErrorMessageResourceName = "LastNameRequiredError")]
+		[MaxLength(50, ErrorMessageResourceType = typeof(Resources.Messages),
+			ErrorMessageResourceName = "FieldMaxLengthError")]
 		[DisplayName("Förstanamn")]
 		public string FirstName { get; set; }
 
-		[Required]
-		[MaxLength(50)]
+		[Required(ErrorMessageResourceType = typeof(Resources.Messages),
+			ErrorMessageResourceName = "EmailAddressRequiredError")]
+		[MaxLength(50, ErrorMessageResourceType = typeof(Resources.Messages),
+			ErrorMessageResourceName = "FieldMaxLengthError")]
 		[DisplayName("Efternamn")]
 		public string LastName { get; set; }
 	}

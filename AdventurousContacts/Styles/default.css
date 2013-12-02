@@ -54,15 +54,43 @@ header#content-header h1
 	line-height: 24px;
 }
 
+div.validation-summary-errors
+{
+	margin: 10px;
+	padding: 10px;
+	color: #f00;
+	font-size: 13px;
+}
+
+div.validation-summary-errors ul
+{
+	list-style-type: decimal;
+}
+
 div.input
 {
 	margin-bottom: 10px;
 }
 
+div.input label
+{
+	display: block;
+}
+
 div.input input[type=text]
 {
 	display: block;
-	width: 500px;
+	float: left;
+	width: 300px;
+}
+
+div.input span.field-validation-error
+{
+	display: block;
+	float: left;
+	line-height: 34px;
+	color: #f00;
+	margin-left: 10px;
 }
 
 form

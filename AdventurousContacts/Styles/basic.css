@@ -215,6 +215,17 @@ a:hover
 	background: #ca9721;
 }
 
+.btn-red
+{
+	background: #f73232;
+	color: #fff;
+}
+
+.btn-red:hover
+{
+	background: #b51515;
+}
+
 .btn:disabled
 {
 	background: #aaa;

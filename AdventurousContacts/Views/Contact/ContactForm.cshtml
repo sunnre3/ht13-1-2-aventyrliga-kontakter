@@ -1,26 +1,32 @@
 ﻿@model AdventurousContacts.Models.Contact
+@using Resources
 
 @{
-	var submitText = (Model == null) ? "Skapa ny kontakt" : "Spara";
+	var submitText = (Model == null) ? Messages.SubmitButtonNewText : Messages.SubmitButtonEditText;
 }
 
 @using (Html.BeginForm())
 {
+	@Html.ValidationSummary()
 	@Html.AntiForgeryToken()
+	@Html.HiddenFor(m => m.ContactID)
 	
-	<div class="input">
+	<div class="input clearfix">
 		@Html.LabelFor(m => m.FirstName)
-		@Html.TextBoxFor(m => m.FirstName)
+		@Html.TextBoxFor(m => m.FirstName, new { maxlength = 50 })
+		@Html.ValidationMessageFor(m => m.FirstName)
 	</div>
 	
-	<div class="input">
+	<div class="input clearfix">
 		@Html.LabelFor(m => m.LastName)
-		@Html.TextBoxFor(m => m.LastName)
+		@Html.TextBoxFor(m => m.LastName, new { maxlength = 50 })
+		@Html.ValidationMessageFor(m => m.LastName)
 	</div>
 	
-	<div class="input">
+	<div class="input clearfix">
 		@Html.LabelFor(m => m.EmailAddress)
-		@Html.TextBoxFor(m => m.EmailAddress)
+		@Html.TextBoxFor(m => m.EmailAddress, new { maxlength = 50 })
+		@Html.ValidationMessageFor(m => m.EmailAddress)
 	</div>
 	
 	<input type="submit" class="btn btn-green" value="@submitText">
@@ -28,7 +34,7 @@
 
 <p class="back-btn">
 	@Html.ActionLink(
-	"Tillbaka till kontakter",
+	Messages.BackToContactsLink,
 	"Index",
 	"Contact",
 	new { },

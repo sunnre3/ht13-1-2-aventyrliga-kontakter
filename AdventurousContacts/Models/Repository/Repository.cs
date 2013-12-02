@@ -108,10 +108,9 @@ namespace AdventurousContacts.Models.Repository
 		{
 			try
 			{
-				// Returns the Contacts with the set offset limit.
+				// Returns the Contacts with the set limit.
 				return _entities.Contacts
 					.OrderByDescending(c => c.ContactID)
-					.Skip(Math.Max(0, _entities.Contacts.Count() - count))
 					.Take(count)
 					.ToList();
 			}
@@ -135,7 +134,7 @@ namespace AdventurousContacts.Models.Repository
 			catch
 			{
 				// Throw exception with set message.
-				throw new Exception(Messages.SaveContactsError);
+				throw;// new Exception(Messages.SaveContactsError);
 			}
 		}
 
@@ -144,14 +143,7 @@ namespace AdventurousContacts.Models.Repository
 		{
 			try
 			{
-				//// Get the old Contact.
-				//var old = _entities.Contacts.FirstOrDefault(c => c.ContactID == contact.ContactID);
-
-				//// Modify the values.
-				//old.EmailAddress = contact.EmailAddress;
-				//old.FirstName = contact.FirstName;
-				//old.LastName = contact.LastName;
-
+				// Update Contact.
 				_entities.Entry(contact).State = EntityState.Modified;
 			}
 

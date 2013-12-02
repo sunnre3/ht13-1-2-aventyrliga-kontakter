@@ -1,15 +1,16 @@
 ﻿@model IEnumerable<AdventurousContacts.Models.Contact>
+@using Resources
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = Messages.FirstPageTitle;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Kontakter</h2>
+<h2>@Messages.FirstPageHeader</h2>
 
 <p>
     @Html.ActionLink(
-	"Skapa ny",
+	Messages.CreateContactLink,
 	"Create",
 	"Contact",
 	new { },
@@ -47,14 +48,14 @@
 			</td>
 			<td>
 				@Html.ActionLink(
-					"Ändra",
+					Messages.EditContactLink,
 					"Edit",
 					"Contact",
 					new { id = item.ContactID },
 					new { @class = "small-btn btn-yellow" }) |
            
 				 @Html.ActionLink(
-					"Ta bort",
+					Messages.DeleteContactLink,
 					"Delete",
 					"Contact",
 					new { id = item.ContactID },

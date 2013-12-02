@@ -1,10 +1,11 @@
 ﻿@model AdventurousContacts.Models.Contact
+@using Resources
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = Messages.NewContactPageTitle;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Skapa ny kontakt</h2>
+<h2>@Messages.NewContactPageHeader</h2>
 
 @Html.Partial("ContactForm", Model)
